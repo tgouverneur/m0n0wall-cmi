@@ -1,0 +1,89 @@
+<html>
+<head><title>m0n0wall-cmi : user documentation</title>
+</head>
+<body>
+<h1><center>m0n0wall-cmi : Post-Installation</center></h1>
+
+<a name="works"></a><h2>How does it works ?</h2>
+
+<p>m0n0wall-cmi is working following this flow chart:</p>
+<center><img src="./img/flowchart.png" border="0" alt="flow chart for m0n0wall-cmi"/></center>
+<p>The mains components are the m0n0wall-cmi php GUI and the MySQL database that holds the m0n0wall devices parameters and convert them into XML.</p>
+
+
+
+<a name="backupuser"></a><h2>What is a backup user ?</h2>
+
+<p>The backup users are used to connect to m0n0wall devices through HTTPS and gather informations such as configuration in XML, interfaces names/MAC, m0n0wall version, etc..</p>
+<p>As user of m0n0wall devices, they need access to following pages:</p>
+<ul>
+<li>Diagnostics: Backup/restore (diag_backup.php) -> Used to retreive and save the XML configuration.</li>
+<li>Hidden: Exec Raw (exec_raw.php) -> Used to retreive m0n0wall device version and physical interfaces information.</li>
+</ul>
+
+<p>You need at least one backup user (or administrator login) to import m0n0wall devices or make the first save of the configuration.</p>
+
+<a name="addbuser"></a><h2>Add a backup user</h2>
+
+<p>To add a backup user, you can follow theses instructions:</p>
+
+<p>First, select <i>Backup users</i> in the <i>General</i> menu, then click to <i>Add new backup user</i> and fill the form as on the screenshot:</p>
+
+<img src="./img/buser-add.png" alt="Backup user add"/> 
+
+<p>Then, click the <i>Save</i> button and you should be able to see the following:</p>
+
+<img src="./img/buser-list.png" alt="Backup user add"/> 
+
+<p>And voila! You should now be able to use this backup user to gather and restore configuration on m0n0wall devices</p>
+
+<a name="addhost"></a><h2>Add a m0n0wall</h2>
+
+<p>Now that you have a backup user configured, you can add a m0n0wall device that will use this backup user. Go to <i>Main Page</i> and click <i>Add new m0n0wall</i>. Fill the form as on the screenshot:</p>
+
+<img src="./img/m0n0-add.png" alt="m0n0wall add"/> 
+
+<p>Note: Other field are optional for now, you can fill them and they will be applied to the m0n0wall at the next synchronization.</p>
+<p>When you have filled all required information, you can click <i>Save</i> and you should see m0n0wall device added in the <i>Main Page</i>.</p>
+
+<img src="./img/m0n0-list.png" alt="m0n0wall list"/> 
+
+<p>As you may have noticed, the status of the m0n0wall is red. This means some modification have been made to the m0n0wall and that you haven't synced it.</p>
+<p>You have to assign a backup user to the m0n0wall you've just added, if you don't, you won't be able to connect to your m0n0wall...
+Click to <i>Assign</i> link and select your backup user.</p>
+
+<p>Now, you have your m0n0wall device in the database, you have assigned it a backup user, but the central management interface don't know which kind of m0n0wall you've added. To tell this to the CMI, you have to <i>Update HW List</i>. This function will connect to your m0n0wall and fetch the version and physical interfaces information.</p>
+
+<img src="./img/m0n0-hwup.png" alt="m0n0wall Hardware Update"/> 
+
+<p>Back to main page, you can see that the version of m0n0wall firmware is now shown under the device's hostname.</p>
+<p>Finally, to complete addition, you have to check last update time of the m0n0wall, do this by clicking on the <i>update</i> link under the status' bullet</p>
+<p>Now you're ready to go ! Configure interfaces and firewall rules, don't forget not to cut access from the CMI to m0n0wall device and you're set!</p>
+
+
+<a name="import"></a><h2>Import a m0n0wall</h2>
+
+<p>The other method to have a m0n0wall inside the database is to import it from live running... This function will import all configuration supported into the database for further edition. To achieve this, in the <i>General</i> menu, click on <i>Import new m0n0wall</i> and fill form as shown in the following screenshot:</p>
+
+<img src="./img/m0n0-import.png" alt="m0n0wall Import"/> 
+
+<p>Then, click <i>Import</i> button, you should see something alike the next screenshot:</p>
+
+<img src="./img/m0n0-import2.png" alt="m0n0wall Import"/> 
+
+<p>Your m0n0wall is now into database and ready to modify/use</p>
+
+<a name="firstsetup"></a><h2>First setup of a m0n0wall with m0n0wall-cmi</h2>
+
+<p>When you have an initial devices to configure, you can follow this procedure:</p>
+<ul>
+<li>Add a backup user with default m0n0wall user setting;</li>
+<li>Either import or simply add your m0n0wall in the CMI;</li>
+<li>Add the final backup user in the m0n0wall and change settings in the CMI;</li>
+<li>Modify or create your configuration;</li>
+<li>Save it to the m0n0wall</li>
+</ul>
+
+<!-- EOF -->
+</body>
+</html>

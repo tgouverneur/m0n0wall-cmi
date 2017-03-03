@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>m0n0wall-CMI : Installation documentation</title>
+</head>
+<body>
+<center><h1>m0n0wall-CMI : Installation</h1></center>
+
+<h2>Requirements</h2>
+
+<p>To install and use m0n0wall-CMI, you will need following things:</p>
+<ul>
+<li>A webserver (tested with Apache 2.2)</li>
+<li>PHP5 Installation with CURL extension enabled (tested with PHP 5.1.2)</li>
+<li>MySQL server with a database configured (tested with MySQL 5.0.26)</li>
+<li>Some m0n0wall devices to manage</li>
+<li>A web-browser (huh?!)</li>
+</ul>
+
+<h2>Fetch latest version</h2>
+
+<p>Latest version of this software could be found on sourceforge <a href="https://sourceforge.net/projects/m0n0wall-cmi">here</a></p>
+
+<h2>CVS Source</h2>
+
+<p>To gather latest source, you can use a CVS client. From UNIX, type following commands:</p>
+<ul>
+<li>cvs -d:pserver:anonymous@m0n0wall-cmi.cvs.sourceforge.net:/cvsroot/m0n0wall-cmi login</li>
+<li>cvs -z3 -d:pserver:anonymous@m0n0wall-cmi.cvs.sourceforge.net:/cvsroot/m0n0wall-cmi co -P m0n0wall-cmi</li>
+</ul>
+
+<h2>Installation</h2>
+
+<p>First, extract the latest archive to a web-directory of your choice.</p>
+<p>If you use CVS version, just copy the directory gathered from CVS server.</p>
+
+<pre>	tar xzvf m0n0wall-CMI-1.0-alpha1.tar.gz</pre>
+
+<p>Then, be sure to have the information of your MySQL server (credentials, rights, database) under hands, 
+and point your browser to http://yoursite.com/<directory of m0n0wall-CMI>/install/</p>
+
+<img alt="Main installation page" src="./img/install-01.png"/>
+
+<p>As you can see, there is a requirement check. To correct the two first errors, issues following commands inside your m0n0wall-CMI directory:</p>
+
+<ul>
+<li><pre>chmod 777 tmp/</pre></li>
+<li><pre>chmod 777 inc/config.inc.php</pre></li>
+</ul>
+
+<p>Refresh the page and you should be able to see the installation page like the following:</p>
+
+<img alt="Main installation page" src="./img/install-02.png"/>
+
+<p>Fill in the information according to your MySQL credentials. Note that the database should exist and that you need right to create table inside.
+You should then see the detailled installation of m0n0wall-CMI, and, if you're lucky, the process should run without any error:</p>
+
+<img alt="Main installation page" src="./img/install-03.png"/>
+
+<p>Your m0n0wall-CMI installation is now complete ! You can still do a little bit of cleaning in your installation by issuing commands:</p>
+
+<ul>
+<li><pre>chmod 444 inc/config.inc.php</pre></li>
+<li><pre>rm -rf install/</pre></li>
+</ul>
+
+<p>If you encounter any issue during the installation, or find any bug, please report it through the sourceforge project page at <a href="https://sourceforge.net/projects/m0n0wall-cmi">https://sourceforge.net/projects/m0n0wall-cmi</a>
+
+</body>
+</html>
