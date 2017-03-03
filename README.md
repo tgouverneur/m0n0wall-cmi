@@ -30,7 +30,7 @@ This software is still in early phase of development,
 it is not yet intented for production usage.
 If you cause any kind of trouble to your network/infrastructure/m0n0wall 
 installations/<others>, neither the authors
-of this software, nor TI Automotive could be holded as responsible.
+of this software, nor TI Automotive could be held responsible.
 ***************************************************************************
 ***************************** BIG FAT WARNING *****************************
 ***************************************************************************
